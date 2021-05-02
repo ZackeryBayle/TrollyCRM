@@ -10,7 +10,7 @@ exports.create = (req, res) => {
     return;
   }
 
-  // Create a Tutorial
+ // Create a Tutorial
   const tutorial = new Tutorial({
     Fname: req.body.Fname,
     Lname: req.body.Lname,
@@ -19,7 +19,7 @@ exports.create = (req, res) => {
     agent: req.body.agent,
     serial: req.body.serial,
     published: req.body.published ? req.body.published : false
-  });
+  }); 
 
   // Save Tutorial in the database
   tutorial
