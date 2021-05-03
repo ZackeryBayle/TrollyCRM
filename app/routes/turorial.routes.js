@@ -1,37 +1,37 @@
 module.exports = app => {
-  const tutorials = require("../controllers/tutorial.controller.js");
+  const Users = require("../controllers/User.controller.js");
 
   var router = require("express").Router();
 
-  // Create a new Tutorial
-  router.post("/", tutorials.create);
+  // Create a new User
+  router.post("/", Users.create);
 
-  // Retrieve all Tutorials
-  router.get("/", tutorials.findAll);
+  // Retrieve all Users
+  router.get("/", Users.findAll);
 
-  // Retrieve all published Tutorials
-  router.get("/published", tutorials.findAllPublished);
+  // Retrieve all published Users
+  router.get("/published", Users.findAllPublished);
 
-  //Retrive cross check search
-  router.get("/cross/:email&:serial", tutorials.findCross);
+  //Retrive cross check search +
+  router.get("/cross/:email:serial", Users.findCross);
 
-  // Retrieve a single Tutorial with id
-  router.get("/id/:id", tutorials.findOneId);
+  // Retrieve a single User with id +
+  router.get("/id/:id", Users.findOneId);
 
-  //Retrieve a single Tutorial with email
-  router.get("/email/:email", tutorials.findOneEmail);
+  //Retrieve a single User with email
+  router.get("/email/:email", Users.findOneEmail);
 
-  //Retrieve a single User with name
-  router.get("/name/:name", tutorials.findOneByName);
+  //Retrieve a single User with name +
+  router.get("/name/:firstName:lastName", Users.findOneByName);
 
-  // Update a Tutorial with id
-  router.put("/:id", tutorials.update);
+  // Update a User with id
+  router.put("/:id", Users.update);
 
-  // Delete a Tutorial with id
-  router.delete("/:id", tutorials.delete);
+  // Delete a User with id
+  router.delete("/:id", Users.delete);
 
-  // Create a new Tutorial
-  router.delete("/", tutorials.deleteAll);
+  // Remove all Users
+  router.delete("/", Users.deleteAll);
 
-  app.use("/api/tutorials", router);
+  app.use("/api/Users", router);
 };

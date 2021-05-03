@@ -1,11 +1,14 @@
 module.exports = mongoose => {
   var schema = mongoose.Schema(
     {
-      name: String,
+      firstName: String,
+      lastName: String,
       email: String,
-      description: String,
-      agent: String,
-      serial: Number,
+      description: {
+        body: String,
+        agent: String,
+        serial: Number
+      },
       status: {
         type: [{
           type: String,
@@ -23,6 +26,6 @@ module.exports = mongoose => {
     return object;
   });
 
-  const Tutorial = mongoose.model("tutorial", schema);
-  return Tutorial;
+  const User = mongoose.model("User", schema);
+  return User;
 };
