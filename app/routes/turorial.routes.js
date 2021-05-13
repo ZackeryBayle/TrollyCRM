@@ -24,6 +24,9 @@ module.exports = app => {
   //Retrieve a single User with name +
   router.get("/name/:firstName:lastName", Users.findOneByName);
 
+  //Retrive a owner of serial
+  router.get("/serial/:serial",Users.findSerial);
+
   // Update a User with id
   router.put("/:id", Users.update);
 
