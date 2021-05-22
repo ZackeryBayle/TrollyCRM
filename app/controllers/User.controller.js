@@ -129,7 +129,7 @@ exports.findOneEmail = (req, res) => {
 
 //Find owner of serial
 exports.findSerial = (req, res) => {
-  const serial = req.params.serial;
+  const serial = req.params.description;
 
   User.find({serial: serial })
   .then(data => {
