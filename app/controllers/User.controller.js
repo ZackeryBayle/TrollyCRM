@@ -127,6 +127,24 @@ exports.findOneEmail = (req, res) => {
     });
 };
 
+//Find owner of serial
+exports.findSerial = (req, res) => {
+  const serial = req.params.serial;
+
+  User.find({serial: serial })
+  .then(data => {
+    if(!data)
+      res.status(404).send({ message: "Not found owner for the serial"});
+    else res.send(data);
+  })
+  .catch(err => {
+    res
+      .status(500)
+      .send({ message: "Error retrieving user with serial=" + serial})
+  });
+
+};
+
 // Update a User by the id in the request
 exports.update = (req, res) => {
   if (!req.body) {
